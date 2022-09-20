@@ -1,0 +1,43 @@
+.quote {
+    position: relative;
+    padding: 50px 50px 50px 100px;
+    width: 100%;
+    height: auto;
+    border: 10px solid rgba(238, 238, 238, 0.2);
+
+    .icon {
+        position: absolute;
+        left: 15px;
+        top: 60px;
+
+        i {
+            color: var(--color-orange);
+            font-size: 60px;
+        }
+    }
+
+    .text {
+        p {
+            margin-bottom: 30px;
+            line-height: 26px;
+            color: #eee;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .title {
+            .name {
+                color: #eee;
+                font-size: 18px;
+                font-weight: 300;
+                margin-bottom: 3px;
+            }
+
+            .position {
+                color: var(--color-orange);
+                font-size: 18px;
+                font-weight: 400;
+            }
+        }
+    }
+}

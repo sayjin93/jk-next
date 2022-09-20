@@ -1,0 +1,103 @@
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    .col {
+        width: 33.333%;
+
+        &_inner {
+            margin: 10px;
+            padding: 30px;
+            text-align: center;
+            background-color: var(--color-white);
+            box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+
+            .icon {
+                margin-bottom: 10px;
+                width: 45px;
+                height: 45px;
+                font-size: 45px;
+                color: var(--color-darkgray);
+            }
+
+            .title {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+
+            .price {
+                margin-bottom: 20px;
+                font-size: 30px;
+                font-weight: 700;
+            }
+
+            .features {
+                margin-bottom: 20px;
+
+                li {
+                    line-height: 30px;
+                }
+            }
+
+            .button {
+                display: inline-block;
+                position: relative;
+                overflow: hidden;
+                padding: 10px 20px;
+                font-weight: 600;
+                font-family: "Montserrat";
+                text-decoration: none;
+                border-radius: 3px;
+                color: var(--color-white);
+                background-color: var(--color-orange);
+
+                &:before {
+                    position: absolute;
+                    content: "";
+                    top: 0;
+                    height: 100%;
+                    left: -45%;
+                    width: 0;
+                    background-color: var(--color-blue);
+                    transform: skew(50deg);
+                    transition-duration: .6s;
+                    z-index: 1;
+                }
+
+                &:hover:before {
+                    width: 190%;
+                }
+
+                span {
+                    position: relative;
+                    z-index: 2;
+                }
+            }
+
+            &.featured {
+                background-color: var(--color-orange);
+
+                .icon,
+                .title,
+                .price {
+                    color: var(--color-white);
+                }
+
+                .features {
+                    li {
+                        color: var(--color-white);
+                    }
+                }
+
+                .button {
+                    color: var(--color-darkgray);
+                    background-color: var(--color-white);
+
+                    &:hover {
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+    }
+}

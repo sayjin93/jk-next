@@ -1,0 +1,117 @@
+.sidebar {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    z-index: 100;
+    background-color: var(--color-blue);
+
+    .inner {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .logo {
+            padding: 50px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+            background-color: var(--color-blue);
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
+            img {
+                max-height: 125px;
+            }
+        }
+
+        .menu {
+            flex: 1 0 auto;
+            padding: 0 20px 0 60px;
+
+            a {
+                font-family: "Montserrat";
+                font-size: 16px;
+                font-weight: 500;
+                text-transform: uppercase;
+                position: relative;
+                display: inline-block;
+                padding-bottom: 19px;
+                -webkit-transition: all .3s ease;
+                transition: all .3s ease;
+                color: var(--color-white);
+
+                &:before {
+                    position: absolute;
+                    content: "";
+                    height: 2px;
+                    width: 0;
+                    top: 14px;
+                    transform: translateY(-50%);
+                    left: 100%;
+                    margin-left: 10px;
+                    -webkit-transition: all .3s ease;
+                    transition: all .3s ease;
+                    background-color: var(--color-orange);
+                }
+
+                &:hover {
+                    color: var(--color-orange);
+                }
+
+                &:hover:before {
+                    width: 35px;
+                }
+
+                &.current & {
+                    color: var(--color-orange);
+                }
+            }
+        }
+
+        .social {
+            flex-shrink: 0;
+
+            .inner {
+                width: 100%;
+                height: auto;
+                float: left;
+                position: relative;
+                left: -5px;
+                margin-bottom: 10px;
+
+                ul {
+                    text-align: center;
+
+                    li {
+                        display: inline-block;
+                        margin-right: 10px;
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+
+                        a {
+                            display: block;
+                            width: 20px;
+                            padding: 0 3px;
+                            -webkit-transition: all .3s ease;
+                            transition: all .3s ease;
+                            color: var(--color-white);
+
+                            &:hover {
+                                color: var(--color-orange);
+                            }
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+}

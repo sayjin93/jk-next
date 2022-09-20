@@ -1,0 +1,326 @@
+:root {
+  --color-white: #ffffff;
+  --color-orange: #e3872d;
+  --color-gray: #6f6f6f;
+  --color-darkgray: #333333;
+  --color-blue: #041230;
+}
+
+/*#region ::placeholder*/
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: var(--color-gray);
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: var(--color-gray);
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--color-gray);
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: var(--color-gray);
+}
+
+/*#endregion*/
+
+/*#region breakpoints mixin*/
+
+$breakpoints-xs: 0px;
+$breakpoints-sm: 576px;
+$breakpoints-md: 768px;
+$breakpoints-lg: 992px;
+$breakpoints-xl: 1200px;
+$breakpoints-xxl: 1400px;
+
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default
+
+// Small devices (landscape phones, 576px and up)
+@mixin min-sm {
+  @media (min-width: #{$breakpoints-sm}) {
+    @content;
+  }
+}
+
+// Small devices (landscape phones, up to 576px)
+@mixin max-sm {
+  @media (max-width: #{$breakpoints-sm}) {
+    @content;
+  }
+}
+
+// Small devices (landscape phones, from 576px to 768px)
+@mixin only-sm {
+  @media (min-width: #{$breakpoints-sm}) and (max-width: #{$breakpoints-md - 1px}) {
+    @content;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@mixin min-md {
+  @media (min-width: #{$breakpoints-md}) {
+    @content;
+  }
+}
+
+// Medium devices (tablets, up to 768px)
+@mixin max-md {
+  @media (max-width: #{$breakpoints-md}) {
+    @content;
+  }
+}
+
+// Medium devices (tablets, from 768px to 992px)
+@mixin only-md {
+  @media (min-width: #{$breakpoints-md}) and (max-width: #{$breakpoints-lg - 1px}) {
+    @content;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@mixin min-lg {
+  @media (min-width: #{$breakpoints-lg}) {
+    @content;
+  }
+}
+
+// Large devices (desktops, up to 992px)
+@mixin max-lg {
+  @media (max-width: #{$breakpoints-lg}) {
+    @content;
+  }
+}
+
+// Large devices (desktops, from 992px to 1200px)
+@mixin only-lg {
+  @media (min-width: #{$breakpoints-lg}) and (max-width: #{$breakpoints-xl - 1px}) {
+    @content;
+  }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@mixin min-xl {
+  @media (min-width: #{$breakpoints-xl}) {
+    @content;
+  }
+}
+
+// X-Large devices (large desktops, up to 1200px)
+@mixin max-xl {
+  @media (max-width: #{$breakpoints-xl}) {
+    @content;
+  }
+}
+
+// X-Large devices (large desktops, from 1200px to 1400px)
+@mixin only-xl {
+  @media (min-width: #{$breakpoints-xl}) and (max-width: #{$breakpoints-xxl - 1px}) {
+    @content;
+  }
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@mixin min-xxl {
+  @media (min-width: #{$breakpoints-xxl}) {
+    @content;
+  }
+}
+
+@mixin max-xxl {
+  @media (max-width: #{$breakpoints-xxl}) {
+    @content;
+  }
+}
+
+/*#endregion*/
+
+/*#region globals*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-gray);
+  background-color: var(--color-white);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-sans;
+}
+
+.flex {
+  display: flex;
+}
+
+h1 {
+  font-family: "Montserrat";
+  line-height: 1;
+  font-weight: 500;
+}
+
+.content {
+  width: 100%;
+  height: auto;
+  padding-left: 300px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+
+  .section {
+    position: relative;
+    width: 100%;
+    height: auto;
+    clear: both;
+
+    &.hasBG {
+      background-color: #f6f7fd;
+    }
+  }
+
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1250px;
+  width: 100%;
+
+
+  @include min-md() {
+    padding: 50px;
+  }
+}
+
+.title {
+  position: relative;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  font-size: 30px;
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: "";
+    height: 3px;
+    left: 0;
+    background-color: var(--color-orange);
+  }
+
+  &:before {
+    width: 30px;
+    bottom: -10px;
+  }
+
+  &:after {
+    width: 50px;
+    bottom: -20px;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .7);
+}
+
+/*#endregion*/
+
+
+.isotope {
+  transition: 0.5s;
+
+  .item {
+    padding: 5px;
+    width: calc(25% - 10px);
+    aspect-ratio: 1 / 1;
+    transition: 0.5s;
+
+    .inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        z-index: 1;
+        transition: 0.5s;
+      }
+
+      &:before {
+
+        top: -100%;
+        left: 0;
+        background: #f6f7fd;
+
+      }
+
+      &:after {
+        bottom: -100%;
+        right: 0;
+        background: rgba(255, 255, 255, .9);
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+  }
+
+  &:hover {
+    .inner {
+      &:before {
+        top: 0;
+      }
+
+      &:after {
+        bottom: 0;
+        transition-delay: 0.5s;
+      }
+
+      &:hover {
+        &:before {
+          top: -100%;
+        }
+
+        &:after {
+          bottom: -100%;
+        }
+      }
+    }
+  }
+}
+
+.jarallax {
+  position: relative;
+  min-height: 100px;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    color: white;
+    background: black;
+  }
+}

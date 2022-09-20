@@ -1,0 +1,90 @@
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+
+    .col {
+        position: relative;
+        padding-bottom: 40px;
+        width: calc(50% - 20px);
+        border-bottom: 1px dashed #dddee3;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            bottom: 5px;
+            border-left: 1px dashed rgba(0, 0, 0, .1);
+        }
+
+        .inner {
+            position: relative;
+            display: flex;
+            gap: 20px;
+
+            &:not(:last-child) {
+                margin-bottom: 50px;
+            }
+
+            .logo {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 60px;
+                height: 60px;
+                overflow: hidden;
+                border-radius: 100%;
+                background-color: var(--color-white);
+                border: 1px dashed rgba(0, 0, 0, .3);
+
+                img {
+                    max-width: 40px;
+                    max-height: 40px;
+                }
+            }
+
+            .info {
+                flex: 1;
+
+                .date {
+                    font-family: "Montserrat";
+                }
+
+                .at {
+                    padding: 0 5px;
+                }
+
+                .name {
+                    font-weight: 500;
+                    font-family: "Montserrat";
+
+                    a {
+                        color: var(--color-orange);
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .position {
+                    display: block;
+                    padding: 10px 0;
+                    font-size: 20px;
+                    font-weight: 500;
+                    font-family: "Montserrat";
+                }
+
+                .grade,
+                .skills {
+                    b {
+                        font-weight: 500;
+                        ;
+                    }
+                }
+            }
+        }
+    }
+}
