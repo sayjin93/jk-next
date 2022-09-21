@@ -5,7 +5,7 @@ import { CountUp } from 'use-count-up';
 
 import styles from './index.module.scss'
 
-const stats = [
+const contact = [
     {
         id: 1,
         icon: 'fa-tasks',
@@ -32,7 +32,7 @@ const stats = [
     },
 ]
 
-export default function Stats() {
+export default function Contact() {
     const [countingStart, setCountingStart] = useState(false);
 
     const _onWaypont = (elementId, data) => {
@@ -44,14 +44,16 @@ export default function Stats() {
     };
 
     return (
-        <div id="stats" className="section">
+        <div id="contact" className="section">
             <div className="container">
+                <h1 className="title">Contact Me</h1>
+
                 <Waypoint
-                    onEnter={_onWaypont.bind(this, 'stats', true)}
-                    onLeave={_onWaypont.bind(this, 'stats', false)}
+                    onEnter={_onWaypont.bind(this, 'contact', true)}
+                    onLeave={_onWaypont.bind(this, 'contact', false)}
                 >
                     <div className={styles.wrapper}>
-                        {stats.map(function (element) {
+                        {contact.map(function (element) {
                             return (
                                 <div key={`stat_${element.id}_key`} id={`stat_${element.id}`} className={styles.col}>
                                     <div className={`${styles.col_inner}`}>

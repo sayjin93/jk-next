@@ -1,0 +1,39 @@
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    .col {
+        width: 25%;
+        text-align: center;
+
+        &_inner {
+            padding: 40px 15px;
+
+            .icon {
+                font-size: 30px;
+                color: var(--color-orange);
+            }
+
+            .number {
+                color: #181a2f;
+                margin: 10px 0;
+                font-size: 40px;
+                font-weight: 700;
+            }
+
+            .text {
+                color: #666;
+                font-size: 14px;
+                display: block;
+                font-weight: 600;
+            }
+
+        }
+
+        &:not(:last-of-type) {
+            .col_inner {
+                border-right: 1px dashed #d1d7db;
+            }
+        }
+    }
+}
