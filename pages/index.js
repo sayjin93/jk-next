@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
-
+import { BrowserView, isMobile } from 'react-device-detect';
 
 import styles from '../styles/Home.module.scss'
 
@@ -14,11 +13,10 @@ import Works from '../components/works'
 import Testimonials from '../components/testimonials'
 import Prices from '../components/prices'
 import Stats from '../components/stats'
-
-import MoveTop from '../components/@others/moveTop'
 import Blog from '../components/blog'
 import Contact from '../components/contact'
 
+import MoveTop from '../components/@others/moveTop'
 const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
   ssr: false
 });
@@ -57,14 +55,15 @@ export default function Home() {
 
         <Contact />
 
-        <MoveTop />
+        <BrowserView>
+          <MoveTop />
 
-        <AnimatedCursor clickables={[
-          'a',
-          '#moveTop',
-          'div[class^="works_filter"]'
-        ]} />
-
+          <AnimatedCursor clickables={[
+            'a',
+            '#moveTop',
+            'div[class^="works_filter"]'
+          ]} />
+        </BrowserView>
       </main>
     </>
   )
